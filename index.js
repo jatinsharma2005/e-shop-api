@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const order = require("./models/order");
 const app = express();
 connectToMongo();
-const appPort = 4000;
+const appPort = process.env.PORT;
 
 const server = app.listen(appPort, () => {
   console.log(`backend server is up on ${appPort}`);
