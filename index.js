@@ -15,6 +15,8 @@ connectToMongo();
 app.use(cors(corsConfig));
 const appPort = process.env.PORT;
 
+app.use(cors(corsConfig));
+
 const server = app.listen(appPort, () => {
   console.log(`backend server is up on ${appPort}`);
 });
