@@ -1,18 +1,17 @@
-const nodemailer = require("nodemailer")
-const dotenv = require("dotenv").config();
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./.env" });
 
 const sendEmail = (options) => {
   const transporter = nodemailer.createTransport({
     service: process.env.MAIL_SERVICE,
-    port: 465,
-    secure: true,
+    port: 587,
     auth: {
       user: process.env.EMAIL_USERNAME,
       pass: process.env.EMAIL_PASSWORD,
     },
-    from: process.env.EMAIL_USERNAME
+    from: process.env.EMAIL_USERNAME,
   });
-
 
   const mailOptions = {
     from: `my Comany <${process.env.EMAIL_FROM}>`,
@@ -22,7 +21,7 @@ const sendEmail = (options) => {
     text: options?.emailtext || options.emailhtml,
   };
 
-  transporter.sendMail(mailOptions,  (err, info) => {
+  transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
       console.log(err);
     } else {
