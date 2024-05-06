@@ -1,20 +1,20 @@
-const nodemailer = require("nodemailer");
-const dotenv = require("dotenv");
-dotenv.config({ path: "./.env" });
+const nodemailer = require("nodemailer")
+const dotenv = require("dotenv").config();
 
 const sendEmail = (options) => {
   const transporter = nodemailer.createTransport({
     service: process.env.MAIL_SERVICE,
-    port: 587,
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
+      user: 'geoffrey.crist35@ethereal.email',
+      pass:"65QnVvmZADwpHPk9ZF",
     },
-    from: process.env.EMAIL_USERNAME,
+    from: process.env.EMAIL_USERNAME
   });
 
   const mailOptions = {
-    from: `my Comany <${process.env.EMAIL_FROM}>`,
+    from: `my Comany <jatinkumar20056@gmail.com>`,
     to: options.to,
     subject: options.subject,
     html: options.emailhtml,
