@@ -3,7 +3,6 @@ const User = require("../models/user");
 const cryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const sendEmail = require("../helpers/sendEmail");
 const { createResetEmailHTML } = require("../helpers/orderConfrimation");
 
 //Register
